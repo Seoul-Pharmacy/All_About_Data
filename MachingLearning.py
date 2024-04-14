@@ -6,4 +6,7 @@ kn.predict([new])
 distances, indexes=kn.neighbors([new])
 
 for i in indexes:
-  print(DUTYNAME[i], DUTYADDR[i], distances[i]) #사용자 주변 5개의 약국 이름, 약국 주소, 거리(단위 변환 필요)를 출력합니다.
+  print(DUTYNAME[i], DUTYADDR[i]) #사용자 주변 5개의 약국 이름, 약국 주소를 출력합니다.
+
+for i in len(indexes):
+  print(distances[i]) #거리 변환이 필요합니다.
