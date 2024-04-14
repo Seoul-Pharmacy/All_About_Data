@@ -2,7 +2,7 @@
 #1. OpenAPI로 약국 위치 정보 데이터를 가져와 데이터 프레임으로 만들기
 #2. 외국어 가능 약국 데이터를 다운 받아 데이터 프레임으로 만들기
 #3. 약국 위치 정보와 외국어 가능 약국의 데이터프레임을 합치고 중복 행 제거하기
-#4. 데이터프레임을 열 단위로 나누기
+#4. 데이터프레임을 열 단위로 나누기(생략 가능)
 #5. 주소를 시, 구, 도로명 단위로 만들어 데이터프레임에 추가
 
 
@@ -89,7 +89,7 @@ Pharmacy_df['WGS84LAT'].replace(False, np.NaN, inplace=True)
 print(Pharmacy_df)
 
 
-#4
+#4(생략 가능)
 #데이터 프레임을 열 단위로 나누기
 name=['HPID', 'DUTYADDR', 'DUTYNAME', 'DUTYTEL1', 'DUTYTIME1C', 'DUTYTIME2C',
        'DUTYTIME3C', 'DUTYTIME4C', 'DUTYTIME5C', 'DUTYTIME6C', 'DUTYTIME7C',
