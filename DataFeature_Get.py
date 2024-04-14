@@ -81,9 +81,10 @@ Pharmacy_df=Pharmacy_df.drop_duplicates(subset=['DUTYTEL1'],keep=False)
 #자치구 열 삭제
 Pharmacy_df=Pharmacy_df.drop('자치구', axis=1)
 
-#위도, 경도의 NaN을 False로 변경
-Pharmacy_df['WGS84LON'].fillna(False, inplace=True)
-Pharmacy_df['WGS84LAT'].fillna(False, inplace=True)
+#위도, 경도 외 Nan을 False로 변경
+Pharmacy_df.fillna(False, inplace=True)
+Pharmacy_df['WGS84LON'].replace(False, np.NaN, inplace=True)
+Pharmacy_df['WGS84LAT'].replace(False, np.NaN, inplace=True)
 
 print(Pharmacy_df)
 
