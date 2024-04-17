@@ -2,10 +2,11 @@ from sklearn.neighbors import KNeighborsRegressor
 from haversine import haversine
 
 def get_pharmacy(datas, user_latitude, user_longitude):
+    
     filtered_longitude=[]
     filtered_latitude=[]
-    distances_results=[]
     datas_results=[]
+
     for i in range(len(datas)):
         filtered_longitude.append(float(datas[i]['longitude']))
         filtered_latitude.append(float(datas[i]['latitude']))
@@ -21,6 +22,6 @@ def get_pharmacy(datas, user_latitude, user_longitude):
         datas_results.append(datas[i])
     
     for i in indexes[0]:
-        distances_results.append(str(haversine((float(user_latitude[0]), float(user_longitude[0])),(float(datas[i]['latitude']),float(datas[i]['longitude']))))+"km") #사용자로부터 가까운 5개 약국과의 거리를 저장합니다.
+        datas[i]["distance"]=(str(haversine((float(user_latitude[0]), float(user_longitude[0])),(float(datas[i]['latitude']),float(datas[i]['longitude']))))+"km") #사용자로부터 가까운 5개 약국과의 거리를 저장합니다.
 
-    return datas_results, distances_results
+    return datas_results
