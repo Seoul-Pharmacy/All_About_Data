@@ -10,9 +10,8 @@ def is_holiday(user_date):
     params ={'serviceKey' : key, 'numOfRows' : '100', '_type':'json', 'solYear' : str(datetime.today().year)}
 
     response = requests.get(url, params=params)
-
     result=json.loads(response.text)
-    json.dumps(result,indent=4,ensure_ascii=False)
+    
     The_holiday=[]
     for i in range(len(result ['response']['body']['items']['item'])):
         The_holiday.append(result['response']['body']['items']['item'][i]['locdate'])
